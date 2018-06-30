@@ -43,7 +43,6 @@ import os, gettext
 import Screens.InfoBar
 import Screens.Standby
 
-from boxbranding import getImageDistro
 
 ##############################
 ###   Multilanguage Init   ###
@@ -1757,13 +1756,10 @@ class PermanentTimeShiftSetup(Screen, ConfigListScreen):
 #################################################
 
 def startSetup(menuid):
-	if getImageDistro() in ('openhdf'):
-		if menuid != "record_menu":
-			return [ ]
+	if menuid = "system":
+		return [(_("Timeshift Settings"), PTSSetupMenu, "pts_setup", 50)]
 	else:
-		if menuid != "system":
-			return [ ]
-	return [(_("Timeshift Settings"), PTSSetupMenu, "pts_setup", 50)]
+		return []
 
 def PTSSetupMenu(session, **kwargs):
 	session.open(PermanentTimeShiftSetup)
